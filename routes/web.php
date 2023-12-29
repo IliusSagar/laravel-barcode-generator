@@ -18,4 +18,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/barcode',[BarcodeController::class,'makeBarcode']);
+Route::get('/barcode', [BarcodeController::class, 'showBarcodeForm']);
+Route::post('/barcode', [BarcodeController::class, 'makeBarcode']);

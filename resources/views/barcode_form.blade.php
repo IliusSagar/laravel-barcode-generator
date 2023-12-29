@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ $label}}</title>
+    <title>Document</title>
 </head>
 <body>
-    <img src="data:image/png;base64,{{ base64_encode($barcode) }}" alt="Barcode">
-    <h4>{{ $label }}</h4>
+    <form action="/barcode" method="post">
+        @csrf
+        <input type="text" name="barcode" value="{{ old('barcode') }}" required>
+        <button type="submit">Submit</button>
+    </form>
     
 </body>
 </html>
