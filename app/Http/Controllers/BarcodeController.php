@@ -17,7 +17,12 @@ class BarcodeController extends Controller
         // make barcode
         if(!$validator->fails())
         {
-            return $request->input('barcode');
+            $label = $request->input('barcode');
+            $barcode_generator = new Picqer\Barcode\BarcodeGeneratorPNG();
+            $barcode = $barcode_generator->getBarcode($label, $barcode_generator::TYPE_CODE_128);
+
+            // dd($barcode);
+            return view('barcode',['label' => $label, 'barcode' => $barcode]);
         }
 
         // validation error
