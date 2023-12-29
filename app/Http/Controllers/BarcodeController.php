@@ -23,7 +23,8 @@ class BarcodeController extends Controller
 
         // make barcode
         if (!$validator->fails()) {
-            $label = $request->input('barcode');
+            // $label = $request->input('barcode');
+            $label = 1243;
             $barcodeGenerator = new BarcodeGeneratorPNG();
             $barcode = $barcodeGenerator->getBarcode($label, $barcodeGenerator::TYPE_CODE_128);
 
